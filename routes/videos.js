@@ -40,4 +40,31 @@ router.get("/:id", (req, res) => {
   }
 });
 
+// POST /videos - route to add a new video
+router.post("/", (req, res) => {
+  const videoObj = req.body;
+  const videosData = readVideos();
+  const newVideo = {
+    id: uuidv4(),
+    title: videoObj.title,
+    description: videoObj.description,
+    channel: "Katrin Test",
+    image: "http://localhost:8080/Upload-video-preview.jpg",
+    views: 0,
+    likes: 0,
+    duration: 10,
+    video: videosData[0].video,
+    timestamp: new Date().getTime(),
+    comments: [],
+  };
+  videosData.push(newVideo);
+
+  try {
+    writeVideos(videosData);
+    res.status(201).json(newVideo);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to save video data" });
+  }
+});
+
 export default router;
