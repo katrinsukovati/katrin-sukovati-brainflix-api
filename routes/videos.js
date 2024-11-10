@@ -29,4 +29,15 @@ router.get("/", (_req, res) => {
   res.json(videoList);
 });
 
+// GET /videos/:id - get details for a specific video using the id of the video
+router.get("/:id", (req, res) => {
+  const videosData = readVideos();
+  const video = videosData.find((v) => v.id === req.params.id);
+  if (video) {
+    res.status(200).json(video);
+  } else {
+    res.status(404).json({ message: "Video not found" });
+  }
+});
+
 export default router;
