@@ -292,18 +292,5 @@
         "timestamp": 1701584262000
       }
     ]
-  },
-  {
-    "id": "e6773b35-329e-4391-b3d9-4b6a8d3e05c6",
-    "title": "Visiting Banff",
-    "description": "This video is all about Banff",
-    "channel": "Katrin Test",
-    "image": "http://localhost:8080/Upload-video-preview.jpg",
-    "views": 0,
-    "likes": 0,
-    "duration": 10,
-    "video": "https://unit-3-project-api-0a5620414506.herokuapp.com/stream",
-    "timestamp": 1731264066237,
-    "comments": []
   }
 ]
