@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
+import videosRoutes from "./routes/videos.js";
 
 const app = express();
 
@@ -15,6 +16,9 @@ app.use(cors({ origin: CLIENT_URL }));
 app.use(express.json());
 // This is used to serve static files like images
 app.use(express.static("public"));
+
+// Use videos routes
+app.use("/videos", videosRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
