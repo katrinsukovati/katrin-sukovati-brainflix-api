@@ -7,10 +7,10 @@ const app = express();
 
 // Retrieves the port number/client url from the environment variables
 const PORT = process.env.PORT;
-const CLIENT_URL = process.env.CLIENT_URL;
+const CORS_ORIGIN = process.env.CORS_ORIGIN;
 
 // Enables CORS for the client URL
-app.use(cors({ origin: CLIENT_URL }));
+app.use(cors({ origin: CORS_ORIGIN }));
 
 // This is used to parse JSON bodies
 app.use(express.json());

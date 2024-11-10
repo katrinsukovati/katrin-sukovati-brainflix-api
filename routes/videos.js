@@ -17,6 +17,15 @@ const readVideos = () => {
   }
 };
 
+// this is a helper function to write data to JSON file
+const writeVideos = (data) => {
+  try {
+    fs.writeFileSync(FILE_PATH, JSON.stringify(data, null, 2), "utf-8");
+  } catch (error) {
+    throw new Error("Error writing to videos file");
+  }
+};
+
 // GET /videos - get the list of videos from the data file
 router.get("/", (_req, res) => {
   const videosData = readVideos();
